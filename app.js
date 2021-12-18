@@ -37,26 +37,28 @@ app.get("/register", function(req, res) {
 // })
 
 app.post("/register", async(req, res) => {
-    try {
-        var name = req.body.name;
-        var email = req.body.email;
-        var pass = req.body.password;
-        var phone = req.body.phone;
+    // try {
+    var name = req.body.name;
+    var email = req.body.email;
+    var pass = req.body.password;
+    var phone = req.body.phone;
 
-        var data = {
-            "name": name,
-            "email": email,
-            "password": pass,
-            "phone": phone,
-        }
-        db.collection('details').insertOne(data, function(err, collection) {
-            if (err) throw err;
-            console.log("Record inserted successfully");
-        });
-
-    } catch (error) {
-        res.status(400).send(error);
+    var data = {
+        "name": name,
+        "email": email,
+        "password": pass,
+        "phone": phone,
     }
+    db.collection('details').insertOne(data, function(err, collection) {
+        if (err) throw err;
+        console.log("Record inserted successfully");
+    });
+
+
+    // } catch (error) {
+    //     res.status(400).send(error);
+    // }
+
 })
 
 app.listen(3000, function() {
