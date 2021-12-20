@@ -53,13 +53,12 @@ app.post("/register", async(req, res) => {
         if (err) throw err;
         console.log("Record inserted successfully");
     });
-
-
     // } catch (error) {
     //     res.status(400).send(error);
     // }
-
 })
+
+
 
 app.listen(3000, function() {
     console.log("server started");
